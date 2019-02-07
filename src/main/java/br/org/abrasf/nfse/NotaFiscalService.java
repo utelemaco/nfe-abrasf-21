@@ -17,7 +17,9 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "NotaFiscalService", targetNamespace = "http://www.abrasf.org.br/nfse.xsd", wsdlLocation = "file:/home/pedro.rafael/Documentos/biiling/wsdlHomologacao.wsdl")
+@WebServiceClient(name = "NotaFiscalService", 
+    targetNamespace = "http://www.abrasf.org.br/nfse.xsd", 
+    wsdlLocation = "classpath:wsdl/abrasf21.wsdl")
 public class NotaFiscalService
     extends Service
 {
@@ -30,12 +32,13 @@ public class NotaFiscalService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/home/pedro.rafael/Documentos/biiling/wsdlHomologacao.wsdl");
-        } catch (MalformedURLException ex) {
+            url = NotaFiscalService.class.getClassLoader().getResource("wsdl/abrasf21.wsdl");
+        } catch (Exception ex) {
             e = new WebServiceException(ex);
         }
         NOTAFISCALSERVICE_WSDL_LOCATION = url;
         NOTAFISCALSERVICE_EXCEPTION = e;
+
     }
 
     public NotaFiscalService() {
